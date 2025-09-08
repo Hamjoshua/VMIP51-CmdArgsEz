@@ -1,21 +1,23 @@
 fun main(args: Array<String>) {
-    var argsChangeable : List<String> = args.toList()
-    if(argsChangeable.isEmpty()){
-        val line = refactorString(readLine()!!)
-        argsChangeable = line.split(" ")
-    }
-    val group = argsChangeable.groupingBy { it }.eachCount()
+    parseInput(args)
+        .groupingBy { it }
+        .eachCount()
         .toList()
-    val sorted = group.sortedWith(
-        compareByDescending<Pair<String, Int>> { it.second }
-            .thenBy { it.first }
-    )
-    sorted.forEach { println("${it.first} ${it.second}") }
+        .sortedWith(
+            compareByDescending<Pair<String, Int>> { it.second }
+                .thenBy { it.first }
+        )
+        .forEach { (word, count) ->
+            println("$word $count")
+        }
 }
 
-fun refactorString(input: String) : String{
-    var line = input.replace("\"", "")
-    line = line.replace("\t", "")
-    line = line.trim()
-    return line
+fun parseInput(args: Array<String>): List<String> {
+    val input = if (args.isEmpty()) readLine() ?: "" else args.joinToString(" ") // на случай пустых args
+    return input
+        .replace("\"", "")
+        .replace("\n", " ")
+        .trim()
+        .split(Regex("\\s+"))
+        .filter { it.isNotEmpty() }
 }

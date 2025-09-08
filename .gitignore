@@ -25,3 +25,15 @@ replay_pid*
 
 # Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
 .kotlin/
+/out/
+/.idea/
+VMIP51-CmdArgs.iml
+.idea/artifacts/VMIP51_CmdArgs_jar.xml
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/kotlinc.xml
+.idea/libraries/KotlinJavaRuntime.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+src/META-INF/MANIFEST.MF
